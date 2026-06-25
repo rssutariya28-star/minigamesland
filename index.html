@@ -3,122 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Games Land — 14 quick games, all offline</title>
-  <meta name="description" content="Mini Games Land is 14 small games in one app. No internet, no sign up, no waiting. Play quick games offline whenever you have a spare minute.">
+  <title>Mini Games Land — 17 quick games, all in one app</title>
+  <meta name="description" content="Mini Games Land is 17 small arcade games in one app. Quick to play, easy to pick up, and packed with high scores to beat.">
   <meta property="og:title" content="Mini Games Land">
-  <meta property="og:description" content="14 quick games in one app. All offline. No sign up.">
+  <meta property="og:description" content="17 quick arcade games in one app.">
   <meta property="og:type" content="website">
   <style>
-    :root {
-      --violet: #6A1B9A;
-      --magenta: #E040FB;
-      --coral: #FF6B9D;
-      --ink: #0A0E27;
+    :root{
+      --violet:#6A1B9A; --magenta:#E040FB; --coral:#FF6B9D;
+      --ink:#080b1f; --card:#12162e; --line:#222746; --muted:#9aa0c0;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #f5f5f7;
-      background: var(--ink);
-      line-height: 1.6;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:#f3f4fb;background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
     }
-    a { color: var(--coral); }
-    .hero {
-      text-align: center;
-      padding: 80px 20px 64px;
-      background: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 55%, var(--coral) 100%);
+    a{color:var(--coral);text-decoration:none}
+    .container{max-width:1000px;margin:0 auto;padding:0 22px}
+
+    /* Hero */
+    .hero{position:relative;text-align:center;padding:88px 22px 72px;overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:0;z-index:0;
+      background:linear-gradient(125deg,var(--violet),var(--magenta) 52%,var(--coral));
+      background-size:200% 200%;animation:flow 14s ease infinite;opacity:.92;
     }
-    .badge {
-      width: 112px; height: 112px;
-      border-radius: 26px;
-      margin: 0 auto 24px;
-      display: block;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-    }
-    .hero h1 { font-size: 2.6rem; margin: 0 0 8px; letter-spacing: 0.5px; }
-    .hero p { font-size: 1.25rem; margin: 0; opacity: 0.95; }
-    .coming {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 12px 26px;
-      border: 2px solid rgba(255,255,255,0.85);
-      border-radius: 40px;
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
-    }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 56px 20px; }
-    h2 { font-size: 1.6rem; text-align: center; margin: 0 0 8px; }
-    .lead { text-align: center; color: #b9b9c6; max-width: 620px; margin: 0 auto 40px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .card {
-      background: #161a36;
-      border: 1px solid #242a4d;
-      border-radius: 14px;
-      padding: 16px 18px;
-    }
-    .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
-    .card p { margin: 0; color: #a7a7b6; font-size: 0.92rem; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
-    .feature { text-align: center; padding: 14px; }
-    .feature strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
-    .feature span { color: #a7a7b6; }
-    footer { text-align: center; padding: 40px 20px 60px; color: #8a8a99; border-top: 1px solid #242a4d; }
-    footer a { color: var(--coral); }
+    @keyframes flow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    .hero>*{position:relative;z-index:1}
+    .badge{width:120px;height:120px;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.45);margin-bottom:22px}
+    .hero h1{font-size:2.9rem;letter-spacing:.5px;font-weight:800}
+    .hero .tag{font-size:1.3rem;opacity:.96;margin-top:6px}
+    .pill{display:inline-block;margin-top:30px;padding:12px 28px;border:2px solid rgba(255,255,255,.9);
+      border-radius:50px;color:#fff;font-weight:600;backdrop-filter:blur(2px)}
+    .count{display:flex;gap:34px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+    .count div{min-width:90px}
+    .count b{display:block;font-size:2rem;font-weight:800}
+    .count span{font-size:.85rem;opacity:.9;letter-spacing:.4px;text-transform:uppercase}
+
+    /* Sections */
+    section.block{padding:64px 0}
+    h2{font-size:1.7rem;text-align:center;font-weight:800}
+    .lead{text-align:center;color:var(--muted);max-width:620px;margin:12px auto 0}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:38px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+      transition:transform .15s ease,border-color .15s ease}
+    .card:hover{transform:translateY(-3px);border-color:var(--magenta)}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle}
+    .card h3{font-size:1.05rem;display:flex;align-items:center}
+    .card p{color:var(--muted);font-size:.9rem;margin-top:4px}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:38px}
+    .feature{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
+    .feature .ic{font-size:1.8rem}
+    .feature strong{display:block;margin:8px 0 4px;font-size:1.05rem}
+    .feature span{color:var(--muted);font-size:.92rem}
+
+    .faq{max-width:680px;margin:36px auto 0}
+    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 18px;margin-bottom:10px}
+    .faq summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";float:right;color:var(--coral);font-weight:800}
+    .faq details[open] summary::after{content:"–"}
+    .faq p{color:var(--muted);padding:0 0 14px}
+
+    footer{border-top:1px solid var(--line);text-align:center;padding:34px 22px 56px;color:#7b80a0}
+    footer a{color:var(--coral)}
+    footer .links{margin-bottom:10px}
   </style>
 </head>
 <body>
-  <section class="hero">
+  <header class="hero">
     <img class="badge" src="app_icon.png" alt="Mini Games Land icon">
     <h1>Mini Games Land</h1>
-    <p>14 quick games, all offline</p>
-    <span class="coming">Coming soon to the App Store</span>
-  </section>
-
-  <div class="wrap">
-    <h2>One app, fourteen games</h2>
-    <p class="lead">
-      No internet, no sign up, no waiting. Open it, pick something, and play
-      for two minutes or twenty. Every game saves your best score, so there is
-      always something to beat.
-    </p>
-
-    <div class="grid">
-      <div class="card"><h3>Neon Snake</h3><p>The classic snake, lit up.</p></div>
-      <div class="card"><h3>Stack Rush</h3><p>Drop the blocks, build high.</p></div>
-      <div class="card"><h3>Hex Merge</h3><p>Combine tiles into bigger numbers.</p></div>
-      <div class="card"><h3>Brick Smash</h3><p>Bounce the ball, clear the wall.</p></div>
-      <div class="card"><h3>Slice Storm</h3><p>Cut it before it gets past you.</p></div>
-      <div class="card"><h3>Drift Racer</h3><p>Hold to steer, dodge the walls.</p></div>
-      <div class="card"><h3>Sky Jump</h3><p>Bounce higher, do not fall.</p></div>
-      <div class="card"><h3>Lane Hop</h3><p>Cross the lanes, do not get caught.</p></div>
-      <div class="card"><h3>Gravity Dash</h3><p>Flip gravity to dodge.</p></div>
-      <div class="card"><h3>Color Orbit</h3><p>Match the color before you hit it.</p></div>
-      <div class="card"><h3>Bounce Blitz</h3><p>Keep the ball alive.</p></div>
-      <div class="card"><h3>Pulse Sprint</h3><p>Run to the beat.</p></div>
-      <div class="card"><h3>Sand Fall</h3><p>Falling-sand physics to play with.</p></div>
-      <div class="card"><h3>Peg Drop</h3><p>Drop it and watch it bounce.</p></div>
+    <div class="tag">17 quick games, one app</div>
+    <span class="pill">Coming soon to the App Store</span>
+    <div class="count">
+      <div><b>17</b><span>Games</span></div>
+      <div><b>0</b><span>Sign ups</span></div>
+      <div><b>1</b><span>Tap to play</span></div>
     </div>
+  </header>
 
-    <h2 style="margin-top:56px;">Why you might like it</h2>
-    <div class="features">
-      <div class="feature"><strong>Works offline</strong><span>Play on a bus, a plane, anywhere.</span></div>
-      <div class="feature"><strong>No account</strong><span>No login, no email, just play.</span></div>
-      <div class="feature"><strong>Small download</strong><span>Light on storage and older phones.</span></div>
-      <div class="feature"><strong>Daily missions</strong><span>Streaks, coins, and unlockable looks.</span></div>
-    </div>
-  </div>
+  <main class="container">
+    <section class="block">
+      <h2>Seventeen games, one tap away</h2>
+      <p class="lead">Pick something and play for two minutes or twenty. Every game saves your
+        best score, so there is always something to beat.</p>
+      <div class="grid">
+        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Neon Snake</h3><p>The classic snake, lit up.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Stack Rush</h3><p>Drop the blocks, build high.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Hex Merge</h3><p>Combine tiles into bigger numbers.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Brick Smash</h3><p>Bounce the ball, clear the wall.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Slice Storm</h3><p>Cut it before it gets past you.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#E040FB"></span>Drift Racer</h3><p>Hold to steer, dodge the walls.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Sky Jump</h3><p>Bounce higher, do not fall.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Lane Hop</h3><p>Cross the lanes, do not get caught.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Fruit Catch</h3><p>Catch what falls, miss nothing.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Pulse Sprint</h3><p>Run to the beat.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Bounce Blitz</h3><p>Keep the ball alive.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#E040FB"></span>Tap Tiles</h3><p>Tap the right tiles, keep the pace.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Orbit Dodge</h3><p>Circle around, dodge what comes.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Color Sort</h3><p>Sort the colors into place.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Tap Dash</h3><p>Tap to dash, time it right.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Ring Pulse</h3><p>Hit the ring on the beat.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Block Drop</h3><p>Drop blocks and clear the lines.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Why you might like it</h2>
+      <div class="features">
+        <div class="feature"><div class="ic">✈️</div><strong>Plays offline</strong><span>On a bus, a plane, anywhere.</span></div>
+        <div class="feature"><div class="ic">🚫</div><strong>No account</strong><span>No login. Just open and play.</span></div>
+        <div class="feature"><div class="ic">📦</div><strong>Small download</strong><span>Light on storage and older phones.</span></div>
+        <div class="feature"><div class="ic">🎯</div><strong>Daily missions</strong><span>Streaks, coins, and looks to unlock.</span></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Good to know</h2>
+      <div class="faq">
+        <details><summary>Do I need an internet connection?</summary><p>The games play offline. Some features like ads may use a connection when you are online.</p></details>
+        <details><summary>Do I need to make an account?</summary><p>No. There is no login or sign up of any kind.</p></details>
+        <details><summary>Where are my scores saved?</summary><p>On your own device. Your progress stays with you.</p></details>
+        <details><summary>Is it free?</summary><p>Yes, the app is free to download and play.</p></details>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>Made by one person. Questions, bugs, or a game you want added?<br>
-       Email <a href="https://github.com/rssutariya28-star/minigamesland/issues">the issue tracker</a></p>
-    <p><a href="privacy/">Privacy Policy</a></p>
-    <p style="font-size:0.85rem;">&copy; 2026 Riddhesh Sutariya</p>
+    <div class="links"><a href="privacy/">Privacy Policy</a></div>
+    <div>&copy; 2026 Mini Games Land</div>
   </footer>
 </body>
 </html>
