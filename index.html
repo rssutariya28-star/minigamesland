@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Games Land — 14 quick games, all offline</title>
+  <meta name="description" content="Mini Games Land is 14 small games in one app. No internet, no sign up, no waiting. Play quick games offline whenever you have a spare minute.">
+  <meta property="og:title" content="Mini Games Land">
+  <meta property="og:description" content="14 quick games in one app. All offline. No sign up.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --violet: #6A1B9A;
+      --magenta: #E040FB;
+      --coral: #FF6B9D;
+      --ink: #0A0E27;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #f5f5f7;
+      background: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--coral); }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 64px;
+      background: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 55%, var(--coral) 100%);
+    }
+    .badge {
+      width: 112px; height: 112px;
+      border-radius: 26px;
+      margin: 0 auto 24px;
+      display: block;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+    }
+    .hero h1 { font-size: 2.6rem; margin: 0 0 8px; letter-spacing: 0.5px; }
+    .hero p { font-size: 1.25rem; margin: 0; opacity: 0.95; }
+    .coming {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 26px;
+      border: 2px solid rgba(255,255,255,0.85);
+      border-radius: 40px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 56px 20px; }
+    h2 { font-size: 1.6rem; text-align: center; margin: 0 0 8px; }
+    .lead { text-align: center; color: #b9b9c6; max-width: 620px; margin: 0 auto 40px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: #161a36;
+      border: 1px solid #242a4d;
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .card p { margin: 0; color: #a7a7b6; font-size: 0.92rem; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
+    .feature { text-align: center; padding: 14px; }
+    .feature strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+    .feature span { color: #a7a7b6; }
+    footer { text-align: center; padding: 40px 20px 60px; color: #8a8a99; border-top: 1px solid #242a4d; }
+    footer a { color: var(--coral); }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <img class="badge" src="app_icon.png" alt="Mini Games Land icon">
+    <h1>Mini Games Land</h1>
+    <p>14 quick games, all offline</p>
+    <span class="coming">Coming soon to the App Store</span>
+  </section>
+
+  <div class="wrap">
+    <h2>One app, fourteen games</h2>
+    <p class="lead">
+      No internet, no sign up, no waiting. Open it, pick something, and play
+      for two minutes or twenty. Every game saves your best score, so there is
+      always something to beat.
+    </p>
+
+    <div class="grid">
+      <div class="card"><h3>Neon Snake</h3><p>The classic snake, lit up.</p></div>
+      <div class="card"><h3>Stack Rush</h3><p>Drop the blocks, build high.</p></div>
+      <div class="card"><h3>Hex Merge</h3><p>Combine tiles into bigger numbers.</p></div>
+      <div class="card"><h3>Brick Smash</h3><p>Bounce the ball, clear the wall.</p></div>
+      <div class="card"><h3>Slice Storm</h3><p>Cut it before it gets past you.</p></div>
+      <div class="card"><h3>Drift Racer</h3><p>Hold to steer, dodge the walls.</p></div>
+      <div class="card"><h3>Sky Jump</h3><p>Bounce higher, do not fall.</p></div>
+      <div class="card"><h3>Lane Hop</h3><p>Cross the lanes, do not get caught.</p></div>
+      <div class="card"><h3>Gravity Dash</h3><p>Flip gravity to dodge.</p></div>
+      <div class="card"><h3>Color Orbit</h3><p>Match the color before you hit it.</p></div>
+      <div class="card"><h3>Bounce Blitz</h3><p>Keep the ball alive.</p></div>
+      <div class="card"><h3>Pulse Sprint</h3><p>Run to the beat.</p></div>
+      <div class="card"><h3>Sand Fall</h3><p>Falling-sand physics to play with.</p></div>
+      <div class="card"><h3>Peg Drop</h3><p>Drop it and watch it bounce.</p></div>
+    </div>
+
+    <h2 style="margin-top:56px;">Why you might like it</h2>
+    <div class="features">
+      <div class="feature"><strong>Works offline</strong><span>Play on a bus, a plane, anywhere.</span></div>
+      <div class="feature"><strong>No account</strong><span>No login, no email, just play.</span></div>
+      <div class="feature"><strong>Small download</strong><span>Light on storage and older phones.</span></div>
+      <div class="feature"><strong>Daily missions</strong><span>Streaks, coins, and unlockable looks.</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Made by one person. Questions, bugs, or a game you want added?<br>
+       Email <a href="https://github.com/rssutariya28-star/minigamesland/issues">the issue tracker</a></p>
+    <p><a href="privacy/">Privacy Policy</a></p>
+    <p style="font-size:0.85rem;">&copy; 2026 Riddhesh Sutariya</p>
+  </footer>
+</body>
+</html>
