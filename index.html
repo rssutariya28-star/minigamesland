@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Games Land — 17 quick games, all in one app</title>
-  <meta name="description" content="Mini Games Land is 17 small arcade games in one app. Quick to play, easy to pick up, and packed with high scores to beat.">
+  <title>Mini Games Land — 20 quick games, all offline</title>
+  <meta name="description" content="Mini Games Land is 20 small arcade and puzzle games in one free app. No wifi, no sign up, no waiting — just pick one and play. On the App Store as Mini Games: Offline Fun.">
   <meta property="og:title" content="Mini Games Land">
-  <meta property="og:description" content="17 quick arcade games in one app.">
+  <meta property="og:description" content="20 quick arcade and puzzle games in one free app. Plays offline, no account needed.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#080b1f">
+  <link rel="icon" href="app_icon.png">
   <style>
     :root{
       --violet:#6A1B9A; --magenta:#E040FB; --coral:#FF6B9D;
@@ -30,13 +32,18 @@
       background-size:200% 200%;animation:flow 14s ease infinite;opacity:.92;
     }
     @keyframes flow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    @media (prefers-reduced-motion:reduce){.hero::before{animation:none}.card{transition:none}}
     .hero>*{position:relative;z-index:1}
     .badge{width:120px;height:120px;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.45);margin-bottom:22px}
     .hero h1{font-size:2.9rem;letter-spacing:.5px;font-weight:800}
     .hero .tag{font-size:1.3rem;opacity:.96;margin-top:6px}
-    .pill{display:inline-block;margin-top:30px;padding:12px 28px;border:2px solid rgba(255,255,255,.9);
-      border-radius:50px;color:#fff;font-weight:600;backdrop-filter:blur(2px)}
-    .count{display:flex;gap:34px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+    .cta{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:14px 30px;
+      border-radius:50px;background:#fff;color:#12162e;font-weight:700;font-size:1.05rem;
+      box-shadow:0 12px 34px rgba(0,0,0,.3);transition:transform .15s ease}
+    .cta:hover{transform:translateY(-2px)}
+    .cta .apple{font-size:1.25rem;line-height:1}
+    .storename{display:block;margin-top:12px;font-size:.88rem;opacity:.9}
+    .count{display:flex;gap:34px;justify-content:center;margin-top:38px;flex-wrap:wrap}
     .count div{min-width:90px}
     .count b{display:block;font-size:2rem;font-weight:800}
     .count span{font-size:.85rem;opacity:.9;letter-spacing:.4px;text-transform:uppercase}
@@ -50,11 +57,12 @@
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
       transition:transform .15s ease,border-color .15s ease}
     .card:hover{transform:translateY(-3px);border-color:var(--magenta)}
-    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;
+      vertical-align:middle;flex:none}
     .card h3{font-size:1.05rem;display:flex;align-items:center}
     .card p{color:var(--muted);font-size:.9rem;margin-top:4px}
 
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:38px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:38px}
     .feature{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
     .feature .ic{font-size:1.8rem}
     .feature strong{display:block;margin:8px 0 4px;font-size:1.05rem}
@@ -68,73 +76,98 @@
     .faq details[open] summary::after{content:"–"}
     .faq p{color:var(--muted);padding:0 0 14px}
 
+    .closer{text-align:center;padding:8px 0 64px}
+    .closer .cta{background:linear-gradient(125deg,var(--magenta),var(--coral));color:#fff}
+
     footer{border-top:1px solid var(--line);text-align:center;padding:34px 22px 56px;color:#7b80a0}
     footer a{color:var(--coral)}
     footer .links{margin-bottom:10px}
+    footer .links a{margin:0 10px}
   </style>
 </head>
 <body>
   <header class="hero">
-    <img class="badge" src="app_icon.png" alt="Mini Games Land icon">
+    <img class="badge" src="app_icon.png" alt="Mini Games Land icon" width="120" height="120">
     <h1>Mini Games Land</h1>
-    <div class="tag">17 quick games, one app</div>
-    <span class="pill">Coming soon to the App Store</span>
+    <div class="tag">20 quick games, one app, no wifi</div>
+    <a class="cta" href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">
+      <span class="apple">&#63743;</span> Download free on the App Store
+    </a>
+    <span class="storename">Listed on the App Store as <strong>Mini Games: Offline Fun</strong></span>
     <div class="count">
-      <div><b>17</b><span>Games</span></div>
+      <div><b>20</b><span>Games</span></div>
       <div><b>0</b><span>Sign ups</span></div>
-      <div><b>1</b><span>Tap to play</span></div>
+      <div><b>0</b><span>Wifi needed</span></div>
     </div>
   </header>
 
   <main class="container">
     <section class="block">
-      <h2>Seventeen games, one tap away</h2>
-      <p class="lead">Pick something and play for two minutes or twenty. Every game saves your
-        best score, so there is always something to beat.</p>
+      <h2>Twenty games, one tap away</h2>
+      <p class="lead">Arcade, puzzle and reflex games, all in the same app. Pick something and
+        play for two minutes or twenty. Every game keeps your best score, so there is always
+        something to beat.</p>
       <div class="grid">
-        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Neon Snake</h3><p>The classic snake, lit up.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Stack Rush</h3><p>Drop the blocks, build high.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Hex Merge</h3><p>Combine tiles into bigger numbers.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Brick Smash</h3><p>Bounce the ball, clear the wall.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Slice Storm</h3><p>Cut it before it gets past you.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#E040FB"></span>Drift Racer</h3><p>Hold to steer, dodge the walls.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Sky Jump</h3><p>Bounce higher, do not fall.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Lane Hop</h3><p>Cross the lanes, do not get caught.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Fruit Catch</h3><p>Catch what falls, miss nothing.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Pulse Sprint</h3><p>Run to the beat.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Bounce Blitz</h3><p>Keep the ball alive.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#E040FB"></span>Tap Tiles</h3><p>Tap the right tiles, keep the pace.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4DFF9F"></span>Orbit Dodge</h3><p>Circle around, dodge what comes.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FFD700"></span>Color Sort</h3><p>Sort the colors into place.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF6B9D"></span>Tap Dash</h3><p>Tap to dash, time it right.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Ring Pulse</h3><p>Hit the ring on the beat.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Block Drop</h3><p>Drop blocks and clear the lines.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#00C9A7"></span>Stack Rush</h3><p>Tap to drop each block. Anything hanging over the edge is sliced off.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Hex Merge</h3><p>Drop tiles onto the grid. Two equal numbers join into a bigger one.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#00E5FF"></span>Bounce Blitz</h3><p>Place pads under the ball and never let it reach the floor.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Slice Storm</h3><p>Swipe through the fruit for combos. Never touch a bomb.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#76FF03"></span>Neon Snake</h3><p>The classic, lit up. Open edges at first, then walls and shapes.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FFAB00"></span>Drift Racer</h3><p>Steer with your thumb, miss the barriers, take the coins.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF80AB"></span>Sky Jump</h3><p>Bounce upward for ever. Cracked ledges only hold you once.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#1DE9B6"></span>Lane Hop</h3><p>Cross the roads one row at a time. You can always stop and wait.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#B14DFF"></span>Pulse Sprint</h3><p>Endless runner. Jump, slide, and keep going — one hit ends it.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF577F"></span>Brick Smash</h3><p>Serve the ball, move the paddle, break every brick.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#B388FF"></span>Orbit Dodge</h3><p>Circle the middle without stopping. Tap to flip the other way.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FFC233"></span>Color Sort</h3><p>Pour colours between tubes until every tube holds just one.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF6B35"></span>Tap Dash</h3><p>Tap to jump, tap again in the air, clear the gaps and spikes.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#42A5F5"></span>Block Drop</h3><p>Slide and turn the falling pieces. Fill a whole row to clear it.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#00E676"></span>Memory Match</h3><p>Turn two cards at a time and find every matching pair.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#D9A066"></span>Bridge Dash</h3><p>Hold to grow the plank. Let go at exactly the right length.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#7C4DFF"></span>Spin Strike</h3><p>Fire pins into the spinning wheel without hitting one already there.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#FF4FD8"></span>Bubble Pop</h3><p>Aim, shoot, and group three or more of a colour to clear them.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#AEEA00"></span>Pipe Twist</h3><p>Turn the pipes a quarter at a time to join the source to every drain.</p></div>
+        <div class="card"><h3><span class="dot" style="background:#536DFE"></span>Hoop Toss</h3><p>Turn the phone sideways and drag to shoot. Three misses ends the run.</p></div>
       </div>
     </section>
 
     <section class="block">
       <h2>Why you might like it</h2>
       <div class="features">
-        <div class="feature"><div class="ic">✈️</div><strong>Plays offline</strong><span>On a bus, a plane, anywhere.</span></div>
-        <div class="feature"><div class="ic">🚫</div><strong>No account</strong><span>No login. Just open and play.</span></div>
-        <div class="feature"><div class="ic">📦</div><strong>Small download</strong><span>Light on storage and older phones.</span></div>
-        <div class="feature"><div class="ic">🎯</div><strong>Daily missions</strong><span>Streaks, coins, and looks to unlock.</span></div>
+        <div class="feature"><div class="ic">✈️</div><strong>Plays offline</strong><span>On a bus, a plane, in a lift, anywhere with no signal.</span></div>
+        <div class="feature"><div class="ic">🚫</div><strong>No account</strong><span>No login, no email, no sign up. Open it and play.</span></div>
+        <div class="feature"><div class="ic">🎯</div><strong>Daily missions</strong><span>Fresh objectives every day, and a login streak to keep going.</span></div>
+        <div class="feature"><div class="ic">🪙</div><strong>Coins and a shop</strong><span>Earn coins as you play and spend them on looks to unlock.</span></div>
+        <div class="feature"><div class="ic">🏆</div><strong>Scores to beat</strong><span>Every game remembers your best, and tells you when you pass it.</span></div>
+        <div class="feature"><div class="ic">📱</div><strong>iPhone and iPad</strong><span>Free, iOS 15 or later, and light on older phones.</span></div>
       </div>
     </section>
 
     <section class="block">
       <h2>Good to know</h2>
       <div class="faq">
-        <details><summary>Do I need an internet connection?</summary><p>The games play offline. Some features like ads may use a connection when you are online.</p></details>
-        <details><summary>Do I need to make an account?</summary><p>No. There is no login or sign up of any kind.</p></details>
-        <details><summary>Where are my scores saved?</summary><p>On your own device. Your progress stays with you.</p></details>
-        <details><summary>Is it free?</summary><p>Yes, the app is free to download and play.</p></details>
+        <details><summary>Do I need an internet connection?</summary><p>No. Every one of the twenty games plays fully offline. A connection is only used, when you happen to have one, to show ads and to send anonymous usage and crash reports.</p></details>
+        <details><summary>Do I need to make an account?</summary><p>No. There is no login or sign up of any kind, and you never give us a name or an email to play.</p></details>
+        <details><summary>Where is my progress saved?</summary><p>On your own device. Scores, coins, missions, streaks and unlocked items are stored on the phone and are not sent anywhere. Deleting the app removes them.</p></details>
+        <details><summary>Is it free? Are there ads?</summary><p>The app is free. It is paid for by ads, and there are optional rewarded ads you can choose to watch for extra coins. Nothing is locked behind a purchase.</p></details>
+        <details><summary>Does it work on iPad?</summary><p>Yes. It runs on iPhone and iPad, iOS 15 and later.</p></details>
+        <details><summary>Something is broken, or I want a game added</summary><p>Email <a href="https://github.com/rssutariya28-star/minigamesland/issues">the issue tracker</a>. Bug reports and suggestions are both welcome, and I usually reply within a couple of days.</p></details>
       </div>
+    </section>
+
+    <section class="closer">
+      <a class="cta" href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">
+        <span class="apple">&#63743;</span> Get Mini Games Land — free
+      </a>
     </section>
   </main>
 
   <footer>
-    <div class="links"><a href="privacy/">Privacy Policy</a></div>
+    <div class="links">
+      <a href="privacy/">Privacy Policy</a>
+      <a href="https://github.com/rssutariya28-star/minigamesland/issues">Support</a>
+      <a href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">App Store</a>
+    </div>
     <div>&copy; 2026 Mini Games Land</div>
   </footer>
 </body>
