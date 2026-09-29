@@ -3,161 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Games Land — 20 quick games, all offline</title>
-  <meta name="description" content="Mini Games Land is 20 small arcade and puzzle games in one free app. No wifi, no sign up, no waiting — just pick one and play. On the App Store as Mini Games: Offline Fun.">
+  <title>Mini Games Land: 24 quick games, all offline</title>
+  <meta name="description" content="Mini Games Land is 24 small arcade and puzzle games in one free iPhone app. Plays offline, no sign up. Ranks, themes and power-ups, plus daily and weekly challenges. On the App Store as No WiFi Mini Games Box.">
+  <link rel="canonical" href="https://rssutariya28-star.github.io/minigamesland/">
   <meta property="og:title" content="Mini Games Land">
-  <meta property="og:description" content="20 quick arcade and puzzle games in one free app. Plays offline, no account needed.">
+  <meta property="og:description" content="24 quick arcade and puzzle games in one free app. Plays offline, no account needed.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#080b1f">
+  <meta property="og:url" content="https://rssutariya28-star.github.io/minigamesland/">
+  <meta property="og:image" content="https://rssutariya28-star.github.io/minigamesland/app_icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#0A0E27">
+  <meta name="apple-itunes-app" content="app-id=6780023559">
   <link rel="icon" href="app_icon.png">
+  <link rel="apple-touch-icon" href="app_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Mini Games Land",
+    "alternateName": "No WiFi Mini Games Box",
+    "operatingSystem": "iOS 15.0 or later",
+    "applicationCategory": "GameApplication",
+    "url": "https://apps.apple.com/app/id6780023559",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
   <style>
+    /* The app's own palette (lib/core/theme/app_colors.dart in the game). */
     :root{
-      --violet:#6A1B9A; --magenta:#E040FB; --coral:#FF6B9D;
-      --ink:#080b1f; --card:#12162e; --line:#222746; --muted:#9aa0c0;
+      --bg:#0A0E27; --bg2:#1A0E3A; --surface:#151535;
+      --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+      --text:#FFFFFF; --muted:#A0A0C0; --faint:#8080B0;
+      --teal:#00C9A7; --magenta:#E040FB; --orange:#FF6B35; --gold:#FFD700;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      color:#f3f4fb;background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;
+      background:var(--bg) linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%) fixed;
+      min-height:100vh;overflow-x:hidden;
     }
-    a{color:var(--coral);text-decoration:none}
-    .container{max-width:1000px;margin:0 auto;padding:0 22px}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
 
-    /* Hero */
-    .hero{position:relative;text-align:center;padding:88px 22px 72px;overflow:hidden}
+    /* ---------- Hero: the icon's purple glow over the app's navy ---------- */
+    .hero{position:relative;text-align:center;padding:80px 20px 64px;overflow:hidden;isolation:isolate}
     .hero::before{
-      content:"";position:absolute;inset:0;z-index:0;
-      background:linear-gradient(125deg,var(--violet),var(--magenta) 52%,var(--coral));
-      background-size:200% 200%;animation:flow 14s ease infinite;opacity:.92;
+      content:"";position:absolute;inset:-20% -10% 0;z-index:-1;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 30%,rgba(166,61,227,.85),rgba(122,34,196,.45) 45%,transparent 72%),
+        radial-gradient(ellipse 40% 40% at 15% 80%,rgba(224,64,251,.18),transparent 70%),
+        radial-gradient(ellipse 40% 40% at 85% 75%,rgba(0,201,167,.16),transparent 70%);
+      animation:glow 12s ease-in-out infinite alternate;
     }
-    @keyframes flow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-    @media (prefers-reduced-motion:reduce){.hero::before{animation:none}.card{transition:none}}
-    .hero>*{position:relative;z-index:1}
-    .badge{width:120px;height:120px;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.45);margin-bottom:22px}
-    .hero h1{font-size:2.9rem;letter-spacing:.5px;font-weight:800}
-    .hero .tag{font-size:1.3rem;opacity:.96;margin-top:6px}
-    .cta{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:14px 30px;
-      border-radius:50px;background:#fff;color:#12162e;font-weight:700;font-size:1.05rem;
-      box-shadow:0 12px 34px rgba(0,0,0,.3);transition:transform .15s ease}
-    .cta:hover{transform:translateY(-2px)}
-    .cta .apple{font-size:1.25rem;line-height:1}
-    .storename{display:block;margin-top:12px;font-size:.88rem;opacity:.9}
-    .count{display:flex;gap:34px;justify-content:center;margin-top:38px;flex-wrap:wrap}
-    .count div{min-width:90px}
-    .count b{display:block;font-size:2rem;font-weight:800}
-    .count span{font-size:.85rem;opacity:.9;letter-spacing:.4px;text-transform:uppercase}
+    @keyframes glow{from{transform:scale(1)}to{transform:scale(1.06)}}
+    .badge{
+      width:128px;height:128px;border-radius:30px;margin-bottom:24px;
+      box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.12);
+      animation:bob 5s ease-in-out infinite;
+    }
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .hero h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+    .hero .tag{font-size:clamp(1.05rem,2.6vw,1.3rem);color:#E6E0FF;margin-top:10px;font-weight:500}
+    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+    .cta{
+      display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;
+      background:var(--teal);color:var(--bg);font-weight:800;font-size:1.02rem;
+      box-shadow:0 12px 34px rgba(0,201,167,.35);transition:transform .15s ease,box-shadow .15s ease;
+    }
+    .cta:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 16px 40px rgba(0,201,167,.45)}
+    .cta svg{width:20px;height:20px;flex:none}
+    .ghost{
+      display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;
+      color:var(--text);font-weight:700;border:1px solid var(--line2);background:rgba(255,255,255,.04);
+    }
+    .ghost:hover{text-decoration:none;border-color:var(--magenta)}
+    .storename{display:block;margin-top:14px;font-size:.9rem;color:#CFC6EE}
+    .storename strong{color:#fff}
+    .count{display:flex;gap:12px;justify-content:center;margin:40px auto 0;flex-wrap:wrap;max-width:720px}
+    .count div{
+      flex:1 1 140px;padding:14px 10px;border-radius:16px;
+      background:rgba(21,21,53,.6);border:1px solid var(--line);
+    }
+    .count b{display:block;font-size:1.9rem;font-weight:900;line-height:1.1}
+    .count span{font-size:.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 
-    /* Sections */
-    section.block{padding:64px 0}
-    h2{font-size:1.7rem;text-align:center;font-weight:800}
-    .lead{text-align:center;color:var(--muted);max-width:620px;margin:12px auto 0}
+    /* ---------- Sections ---------- */
+    section.block{padding:64px 0 24px}
+    .eyebrow{display:block;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--magenta)}
+    h2{font-size:clamp(1.6rem,4vw,2.1rem);text-align:center;font-weight:900;letter-spacing:-.01em;margin-top:6px}
+    .lead{text-align:center;color:var(--muted);max-width:640px;margin:12px auto 0}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:38px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
-      transition:transform .15s ease,border-color .15s ease}
-    .card:hover{transform:translateY(-3px);border-color:var(--magenta)}
-    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;
-      vertical-align:middle;flex:none}
-    .card h3{font-size:1.05rem;display:flex;align-items:center}
-    .card p{color:var(--muted);font-size:.9rem;margin-top:4px}
+    /* ---------- Game grid: each card in its game's own accent ---------- */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:36px}
+    .game{
+      position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;
+      padding:18px 18px 16px;overflow:hidden;transition:transform .15s ease,border-color .15s ease;
+    }
+    .game::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c)}
+    .game::after{
+      content:"";position:absolute;width:140px;height:140px;right:-60px;top:-60px;border-radius:50%;
+      background:var(--c);opacity:.10;filter:blur(8px);pointer-events:none;
+    }
+    .game:hover{transform:translateY(-3px);border-color:var(--c)}
+    .game h3{font-size:1.06rem;font-weight:800;display:flex;align-items:center;gap:10px}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c);flex:none}
+    .game .line{color:var(--c);font-weight:700;font-size:.86rem;margin-top:6px}
+    .game p{color:var(--muted);font-size:.9rem;margin-top:4px;line-height:1.5}
+    .new{
+      margin-left:auto;font-size:.64rem;font-weight:900;letter-spacing:.08em;padding:3px 8px;border-radius:999px;
+      background:var(--gold);color:#241a00;
+    }
 
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:38px}
-    .feature{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
-    .feature .ic{font-size:1.8rem}
-    .feature strong{display:block;margin:8px 0 4px;font-size:1.05rem}
-    .feature span{color:var(--muted);font-size:.92rem}
+    /* ---------- What's new ---------- */
+    .news{
+      margin-top:36px;border-radius:22px;padding:26px;border:1px solid var(--line2);
+      background:linear-gradient(135deg,rgba(155,53,224,.22),rgba(21,21,53,.9) 55%,rgba(0,201,167,.14));
+    }
+    .news ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px 26px}
+    .news li{position:relative;padding-left:26px;color:#DAD6F2}
+    .news li::before{content:"";position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:3px;
+      background:var(--teal);transform:rotate(45deg)}
+    .news li b{color:#fff}
 
-    .faq{max-width:680px;margin:36px auto 0}
-    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 18px;margin-bottom:10px}
-    .faq summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none}
+    /* ---------- Rank ladder, in the app's emblem colours ---------- */
+    .ranks{margin-top:36px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px 22px}
+    .ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;list-style:none}
+    .rung{text-align:center;padding:16px 8px 12px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+    .gem{
+      width:32px;height:32px;margin:2px auto 12px;border-radius:9px;transform:rotate(45deg);
+      background:linear-gradient(135deg,var(--l),var(--m) 55%,var(--d));
+      box-shadow:0 0 0 2px var(--e),0 6px 16px rgba(0,0,0,.4);
+    }
+    .rung b{display:block;font-size:.84rem;font-weight:800;color:var(--t);line-height:1.25}
+    .rung small{display:block;font-size:.72rem;color:var(--faint);margin-top:3px;font-weight:600}
+    .ranks p{color:var(--muted);font-size:.92rem;text-align:center;margin:18px auto 0;max-width:680px}
+
+    /* ---------- Features ---------- */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:14px}
+    .feature{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+    .feature .ic{
+      width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.45rem;
+      background:rgba(255,255,255,.06);border:1px solid var(--c);
+    }
+    .feature strong{display:block;margin:14px 0 4px;font-size:1.06rem;font-weight:800}
+    .feature span{color:var(--muted);font-size:.92rem;line-height:1.55;display:block}
+
+    /* ---------- FAQ ---------- */
+    .faq{max-width:720px;margin:36px auto 0}
+    .faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px;margin-bottom:10px}
+    .faq details[open]{border-color:var(--line2)}
+    .faq summary{cursor:pointer;padding:14px 0;font-weight:700;list-style:none;display:flex;gap:12px;align-items:center}
     .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{content:"+";float:right;color:var(--coral);font-weight:800}
-    .faq details[open] summary::after{content:"–"}
+    .faq summary::after{content:"+";margin-left:auto;color:var(--teal);font-weight:900;font-size:1.2rem;line-height:1}
+    .faq details[open] summary::after{content:"\2013"}
     .faq p{color:var(--muted);padding:0 0 14px}
 
-    .closer{text-align:center;padding:8px 0 64px}
-    .closer .cta{background:linear-gradient(125deg,var(--magenta),var(--coral));color:#fff}
+    .closer{text-align:center;padding:56px 0 72px}
+    .closer h2{margin-bottom:22px}
 
-    footer{border-top:1px solid var(--line);text-align:center;padding:34px 22px 56px;color:#7b80a0}
-    footer a{color:var(--coral)}
-    footer .links{margin-bottom:10px}
-    footer .links a{margin:0 10px}
+    footer{border-top:1px solid var(--line);text-align:center;padding:32px 20px 52px;color:var(--faint);font-size:.92rem}
+    footer .links{margin-bottom:10px;display:flex;gap:8px 22px;justify-content:center;flex-wrap:wrap}
+    footer .links a{color:var(--muted);font-weight:600}
+    footer .links a:hover{color:var(--teal)}
+
+    @media (prefers-reduced-motion:reduce){
+      .hero::before,.badge{animation:none}
+      .game,.cta{transition:none}
+      html{scroll-behavior:auto}
+    }
+    @media (max-width:520px){
+      .hero{padding:60px 16px 48px}
+      .container{padding:0 16px}
+      .news,.ranks{padding:20px 16px}
+      .ladder{grid-template-columns:repeat(2,1fr)}
+    }
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.87.69 1.18-.02 1.93-1.08 2.66-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.3-.88-2.32-3.5zM14.18 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.3-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.2z"/></symbol>
+  </svg>
+
   <header class="hero">
-    <img class="badge" src="app_icon.png" alt="Mini Games Land icon" width="120" height="120">
+    <img class="badge" src="app_icon.png" alt="Mini Games Land app icon" width="128" height="128">
     <h1>Mini Games Land</h1>
-    <div class="tag">20 quick games, one app, no wifi</div>
-    <a class="cta" href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">
-      <span class="apple">&#63743;</span> Download free on the App Store
-    </a>
-    <span class="storename">Listed on the App Store as <strong>Mini Games: Offline Fun</strong></span>
+    <div class="tag">24 quick games. One app. No WiFi needed.</div>
+    <div class="actions">
+      <a class="cta" href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#apple"/></svg> Download free on the App Store
+      </a>
+      <a class="ghost" href="#games">See all 24 games</a>
+    </div>
+    <span class="storename">Listed on the App Store as <strong>No WiFi Mini Games Box</strong></span>
     <div class="count">
-      <div><b>20</b><span>Games</span></div>
+      <div><b>24</b><span>Games</span></div>
+      <div><b>8</b><span>Ranks in each</span></div>
+      <div><b>0</b><span>WiFi needed</span></div>
       <div><b>0</b><span>Sign ups</span></div>
-      <div><b>0</b><span>Wifi needed</span></div>
     </div>
   </header>
 
   <main class="container">
-    <section class="block">
-      <h2>Twenty games, one tap away</h2>
-      <p class="lead">Arcade, puzzle and reflex games, all in the same app. Pick something and
-        play for two minutes or twenty. Every game keeps your best score, so there is always
-        something to beat.</p>
+    <section class="block" id="games">
+      <span class="eyebrow">The games</span>
+      <h2>Twenty-four games, one tap away</h2>
+      <p class="lead">Arcade, puzzle and reflex games in the same app. Play one for two minutes
+        or twenty. Every game keeps your best score, has its own music, and shows you how it
+        plays the first few times.</p>
       <div class="grid">
-        <div class="card"><h3><span class="dot" style="background:#00C9A7"></span>Stack Rush</h3><p>Tap to drop each block. Anything hanging over the edge is sliced off.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#4D7CFF"></span>Hex Merge</h3><p>Drop tiles onto the grid. Two equal numbers join into a bigger one.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#00E5FF"></span>Bounce Blitz</h3><p>Place pads under the ball and never let it reach the floor.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF3D57"></span>Slice Storm</h3><p>Swipe through the fruit for combos. Never touch a bomb.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#76FF03"></span>Neon Snake</h3><p>The classic, lit up. Open edges at first, then walls and shapes.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FFAB00"></span>Drift Racer</h3><p>Steer with your thumb, miss the barriers, take the coins.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF80AB"></span>Sky Jump</h3><p>Bounce upward for ever. Cracked ledges only hold you once.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#1DE9B6"></span>Lane Hop</h3><p>Cross the roads one row at a time. You can always stop and wait.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#B14DFF"></span>Pulse Sprint</h3><p>Endless runner. Jump, slide, and keep going — one hit ends it.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF577F"></span>Brick Smash</h3><p>Serve the ball, move the paddle, break every brick.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#B388FF"></span>Orbit Dodge</h3><p>Circle the middle without stopping. Tap to flip the other way.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FFC233"></span>Color Sort</h3><p>Pour colours between tubes until every tube holds just one.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF6B35"></span>Tap Dash</h3><p>Tap to jump, tap again in the air, clear the gaps and spikes.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#42A5F5"></span>Block Drop</h3><p>Slide and turn the falling pieces. Fill a whole row to clear it.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#00E676"></span>Memory Match</h3><p>Turn two cards at a time and find every matching pair.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#D9A066"></span>Bridge Dash</h3><p>Hold to grow the plank. Let go at exactly the right length.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#7C4DFF"></span>Spin Strike</h3><p>Fire pins into the spinning wheel without hitting one already there.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#FF4FD8"></span>Bubble Pop</h3><p>Aim, shoot, and group three or more of a colour to clear them.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#AEEA00"></span>Pipe Twist</h3><p>Turn the pipes a quarter at a time to join the source to every drain.</p></div>
-        <div class="card"><h3><span class="dot" style="background:#536DFE"></span>Hoop Toss</h3><p>Turn the phone sideways and drag to shoot. Three misses ends the run.</p></div>
+        <article class="game" style="--c:#00C9A7"><h3><span class="dot"></span>Stack Rush</h3><div class="line">Stack blocks. Chain perfects.</div><p>Tap to drop each block. Line it up exactly for a perfect, and keep the perfects coming.</p></article>
+        <article class="game" style="--c:#4D7CFF"><h3><span class="dot"></span>Hex Merge</h3><div class="line">Merge tiles. Build chains.</div><p>Drag tiles onto the hex board. Equal numbers merge into a bigger one, and chains pay big.</p></article>
+        <article class="game" style="--c:#00E5FF"><h3><span class="dot"></span>Bounce Blitz</h3><div class="line">Bounce on monsters. Stomp them all.</div><p>Steer your bouncing ball onto the monsters. Tap to slam down, and chain stomp after stomp.</p></article>
+        <article class="game" style="--c:#FF3D57"><h3><span class="dot"></span>Slice Storm</h3><div class="line">Swipe to slice. Avoid the bombs.</div><p>Slash through the fruit for combos. Cut right beside a bomb for a risk bonus, but never the bomb.</p></article>
+        <article class="game" style="--c:#76FF03"><h3><span class="dot"></span>Neon Snake</h3><div class="line">Eat orbs. Slip through the gaps.</div><p>The classic, lit up. Edges wrap at first, then walls close in with gaps to slip through.</p></article>
+        <article class="game" style="--c:#FFAB00"><h3><span class="dot"></span>Drift Racer</h3><div class="line">Hold to steer. Chain your drifts.</div><p>Weave past the barriers and grab the coins. Hold through a lane change to drift and build a combo.</p></article>
+        <article class="game" style="--c:#FF80AB"><h3><span class="dot"></span>Sky Jump</h3><div class="line">Drag to steer. Climb the platforms.</div><p>Your hero bounces on its own. Guide it up, hit the springs, and watch for ledges that give way.</p></article>
+        <article class="game" style="--c:#1DE9B6"><h3><span class="dot"></span>Lane Hop</h3><div class="line">Hop forward. Dodge the cars.</div><p>Tap to hop, swipe to side-step. No rush: wait on the grass until the road has a gap.</p></article>
+        <article class="game" style="--c:#B14DFF"><h3><span class="dot"></span>Pulse Sprint</h3><div class="line">Jump. Slide. Sprint forever.</div><p>An endless runner, played sideways. Jump the blocks, slide under the gates, grab every gold orb.</p></article>
+        <article class="game" style="--c:#FF577F"><h3><span class="dot"></span>Brick Smash</h3><div class="line">Blast the bouncing bricks.</div><p>Hold to fire and slide to move. Big bricks split in two, so don't let one land on you.</p></article>
+        <article class="game" style="--c:#B388FF"><h3><span class="dot"></span>Orbit Dodge</h3><div class="line">Hold left or right. Slip through the rings.</div><p>Move your ship round the middle and be under the gap when each ring closes in.</p></article>
+        <article class="game" style="--c:#FFC233"><h3><span class="dot"></span>Color Sort</h3><div class="line">Pour colors. Sort the tubes.</div><p>Tap a tube, then another, to pour. Finish when every tube holds one colour. Undo is free.</p></article>
+        <article class="game" style="--c:#FF7A1A"><h3><span class="dot"></span>Meteor Guard<span class="new">NEW</span></h3><div class="line">Tap the sky. Save the towns.</div><p>Fire at the falling meteors. Shots take a moment to climb, so aim ahead and keep your towns standing.</p></article>
+        <article class="game" style="--c:#42A5F5"><h3><span class="dot"></span>Block Drop</h3><div class="line">Drop blocks. Clear the rows.</div><p>Drag to move, tap to turn, flick down to slam. Fill a row to clear it, and clear a gem to set it off.</p></article>
+        <article class="game" style="--c:#00E676"><h3><span class="dot"></span>Memory Match</h3><div class="line">Flip cards. Find every pair.</div><p>Turn two cards at a time. Pairs in a row add time to the clock, and a wrong guess costs some.</p></article>
+        <article class="game" style="--c:#D9A066"><h3><span class="dot"></span>Bridge Dash</h3><div class="line">Hold to build. Cross the gap.</div><p>Hold to grow the plank and let go to drop it across. Land on the gold centre for a perfect.</p></article>
+        <article class="game" style="--c:#7C4DFF"><h3><span class="dot"></span>Spin Strike</h3><div class="line">Throw pins. Never clash.</div><p>Tap to throw a pin into the spinning wheel. Never hit a pin that is already there.</p></article>
+        <article class="game" style="--c:#FF4FD8"><h3><span class="dot"></span>Wall Flip<span class="new">NEW</span></h3><div class="line">Tap to leap. Dodge the spikes.</div><p>Leap from wall to wall, and tap again in the air to turn back. Keep off the spikes and chain the stars.</p></article>
+        <article class="game" style="--c:#AEEA00"><h3><span class="dot"></span>Pipe Twist</h3><div class="line">Rotate pipes. Complete the flow.</div><p>Turn the pipes to join the source to every drain before the time runs out.</p></article>
+        <article class="game" style="--c:#536DFE"><h3><span class="dot"></span>Hoop Toss</h3><div class="line">Drag to aim. Sink the shot.</div><p>Played sideways. Drag and let go to shoot. Nothing but net scores double.</p></article>
+        <article class="game" style="--c:#C04CFD"><h3><span class="dot"></span>Zone Grab<span class="new">NEW</span></h3><div class="line">Draw a line. Claim the land.</div><p>Swipe out, draw a line, and get back to claim what you cut off. Don't let an enemy touch your line.</p></article>
+        <article class="game" style="--c:#1FD8C8"><h3><span class="dot"></span>Fish Frenzy<span class="new">NEW</span></h3><div class="line">Eat small fish. Grow big.</div><p>Drag to swim. Eat the smaller fish, swerve away from the bigger ones, and keep growing.</p></article>
+        <article class="game" style="--c:#7ED957"><h3><span class="dot"></span>Hill Glide<span class="new">NEW</span></h3><div class="line">Hold to dive. Beat the sunset.</div><p>Hold to dive down each hill and let go to fly off the top. Land on a downslope to keep your speed.</p></article>
+        <article class="game" style="--c:#FF6B35"><h3><span class="dot"></span>Tap Dash</h3><div class="line">Tap to jump. Run forever.</div><p>Played sideways. Tap to jump, tap again to double-jump, and swipe down to drop out of a jump.</p></article>
       </div>
     </section>
 
-    <section class="block">
-      <h2>Why you might like it</h2>
+    <section class="block" id="new">
+      <span class="eyebrow">Version 1.3.2</span>
+      <h2>What's new</h2>
+      <div class="news">
+        <ul>
+          <li><b>Five new games:</b> Meteor Guard, Wall Flip, Zone Grab, Fish Frenzy and Hill Glide. Wall Flip takes Bubble Pop's place.</li>
+          <li><b>Ranks in every game,</b> from Bronze to Super Grandmaster, with coins at every rank.</li>
+          <li><b>Themes for every game:</b> a whole new look for the board, bought with coins.</li>
+          <li><b>Power-ups</b> such as Wide Block, Jetpack, Time Warp and Ghost.</li>
+          <li><b>Weekly Tournament</b> and a <b>Challenge of the Day</b>, next to the daily challenges.</li>
+          <li><b>Diamonds and revives:</b> spin the lucky wheel, and bring a lost run back.</li>
+          <li><b>Bounce Blitz, Brick Smash and Orbit Dodge</b> rebuilt from the ground up.</li>
+          <li><b>New music and sounds</b> for home and every game.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="features">
+      <span class="eyebrow">Beyond the high score</span>
+      <h2>Something to chase every day</h2>
+      <p class="lead">Every round earns coins and moves you up a rank. Spend coins on themes and
+        power-ups, and come back for new challenges each day and each week.</p>
+
+      <div class="ranks">
+        <ul class="ladder" aria-label="The eight ranks in every game">
+          <li class="rung" style="--l:#F6BE8A;--m:#C97D3E;--d:#7E4521;--e:#4F2A12;--t:#E9A064"><div class="gem"></div><b>Bronze</b></li>
+          <li class="rung" style="--l:#FFFFFF;--m:#C6D0DD;--d:#7A879A;--e:#465264;--t:#D8E0EB"><div class="gem"></div><b>Silver</b></li>
+          <li class="rung" style="--l:#FFF4A8;--m:#FFC927;--d:#C98700;--e:#6E4700;--t:#FFD34D"><div class="gem"></div><b>Gold</b></li>
+          <li class="rung" style="--l:#EFFFFC;--m:#8FE7DB;--d:#3A9A90;--e:#1B5B54;--t:#9CF0E4"><div class="gem"></div><b>Platinum</b><small>Free theme</small></li>
+          <li class="rung" style="--l:#E6F7FF;--m:#5CC6FF;--d:#2362D6;--e:#142F78;--t:#7CD3FF"><div class="gem"></div><b>Diamond</b></li>
+          <li class="rung" style="--l:#EBDDFF;--m:#A774FF;--d:#6131CF;--e:#34177A;--t:#C19BFF"><div class="gem"></div><b>Master</b></li>
+          <li class="rung" style="--l:#FFA3A3;--m:#EE3F45;--d:#9E0F22;--e:#55060F;--t:#FF7A7A"><div class="gem"></div><b>Grandmaster</b><small>Profile title</small></li>
+          <li class="rung" style="--l:#FFD6F4;--m:#E55CFF;--d:#6A2BD9;--e:#2E0B5E;--t:#FF8BE6"><div class="gem"></div><b>Super Grandmaster</b><small>Profile title</small></li>
+        </ul>
+        <p>Each game has its own eight ranks, and every one pays coins. Every round's score adds
+          to your total, a round better than your usual adds a bonus, and a rank once reached is
+          never taken away.</p>
+      </div>
+
       <div class="features">
-        <div class="feature"><div class="ic">✈️</div><strong>Plays offline</strong><span>On a bus, a plane, in a lift, anywhere with no signal.</span></div>
-        <div class="feature"><div class="ic">🚫</div><strong>No account</strong><span>No login, no email, no sign up. Open it and play.</span></div>
-        <div class="feature"><div class="ic">🎯</div><strong>Daily missions</strong><span>Fresh objectives every day, and a login streak to keep going.</span></div>
-        <div class="feature"><div class="ic">🪙</div><strong>Coins and a shop</strong><span>Earn coins as you play and spend them on looks to unlock.</span></div>
-        <div class="feature"><div class="ic">🏆</div><strong>Scores to beat</strong><span>Every game remembers your best, and tells you when you pass it.</span></div>
-        <div class="feature"><div class="ic">📱</div><strong>iPhone and iPad</strong><span>Free, iOS 15 or later, and light on older phones.</span></div>
+        <div class="feature" style="--c:#E040FB"><div class="ic">🎨</div><strong>Themes for every game</strong><span>Spend coins on a whole new look for any game. Not sure? Watch a short video and try one for a few rounds first.</span></div>
+        <div class="feature" style="--c:#00E5FF"><div class="ic">⚡</div><strong>Power-ups</strong><span>Most games have their own, like Jetpack, Time Warp or Ghost. Buy one with coins, or get one free with a video.</span></div>
+        <div class="feature" style="--c:#00C9A7"><div class="ic">🎯</div><strong>Daily challenges</strong><span>Five new challenges every day. Claim them for coins and fill the track to open two bonus chests. Swap one you don't fancy.</span></div>
+        <div class="feature" style="--c:#FFD700"><div class="ic">🏅</div><strong>Weekly Tournament</strong><span>Enter a challenge for a few coins, reach a target before Sunday ends, and win back more than you put in.</span></div>
+        <div class="feature" style="--c:#FF6B35"><div class="ic">🔥</div><strong>Challenge of the Day</strong><span>Enter with a short video, then play 30 rounds of any game for a prize that grows as you go. A new twist every day.</span></div>
+        <div class="feature" style="--c:#FF80AB"><div class="ic">🎁</div><strong>Daily reward</strong><span>A seven-day ladder that pays more each day you come back. Missed a day? A Streak Saver keeps it going.</span></div>
+        <div class="feature" style="--c:#5CC6FF"><div class="ic">💎</div><strong>Diamonds and revives</strong><span>Spin the lucky wheel for diamonds, with a free spin every day. Diamonds bring a lost run back, score and all.</span></div>
+        <div class="feature" style="--c:#76FF03"><div class="ic">✈️</div><strong>Plays offline</strong><span>On a bus, a plane, in a lift, anywhere with no signal. All 24 games work without WiFi.</span></div>
+        <div class="feature" style="--c:#B388FF"><div class="ic">🙅</div><strong>No account</strong><span>No login, no email, no sign up. Open it and play. Your progress stays on your phone.</span></div>
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="faq">
+      <span class="eyebrow">Questions</span>
       <h2>Good to know</h2>
       <div class="faq">
-        <details><summary>Do I need an internet connection?</summary><p>No. Every one of the twenty games plays fully offline. A connection is only used, when you happen to have one, to show ads and to send anonymous usage and crash reports.</p></details>
-        <details><summary>Do I need to make an account?</summary><p>No. There is no login or sign up of any kind, and you never give us a name or an email to play.</p></details>
-        <details><summary>Where is my progress saved?</summary><p>On your own device. Scores, coins, missions, streaks and unlocked items are stored on the phone and are not sent anywhere. Deleting the app removes them.</p></details>
-        <details><summary>Is it free? Are there ads?</summary><p>The app is free. It is paid for by ads, and there are optional rewarded ads you can choose to watch for extra coins. Nothing is locked behind a purchase.</p></details>
-        <details><summary>Does it work on iPad?</summary><p>Yes. It runs on iPhone and iPad, iOS 15 and later.</p></details>
+        <details><summary>Do I need an internet connection?</summary><p>No. All 24 games play fully offline. When you happen to have a connection, it is used to show ads (including the optional videos for diamonds, power-ups and theme trials), to send anonymous usage and crash reports, and to check whether a newer version of the app is out.</p></details>
+        <details><summary>Do I need to make an account?</summary><p>No. There is no login or sign up of any kind. You can give yourself a player name if you like, and it stays on your phone.</p></details>
+        <details><summary>Where is my progress saved?</summary><p>On your own device. Scores, coins, diamonds, ranks, themes, power-ups, challenges and your streak are stored on the phone and are not sent anywhere. Updating the app keeps them; deleting the app removes them.</p></details>
+        <details><summary>Is it free? Are there ads?</summary><p>The app is free, and there are no in-app purchases. It is paid for by ads. Coins and diamonds are earned by playing, and you can choose to watch a short video for extras such as diamonds, a power-up or a theme trial.</p></details>
+        <details><summary>Why is it called something else on the App Store?</summary><p>On the App Store it is listed as <strong>No WiFi Mini Games Box</strong>. It is the same app: once installed, it is called Mini Games Land.</p></details>
+        <details><summary>Does it work on iPad?</summary><p>It is made for iPhone and needs iOS 15 or later. iPads can install it from the App Store too, and run it in the iPhone layout.</p></details>
         <details><summary>Something is broken, or I want a game added</summary><p>Open an issue on the <a href="https://github.com/rssutariya28-star/minigamesland/issues" target="_blank" rel="noopener">Mini Games Land issue tracker</a>. Bug reports and suggestions are both welcome.</p></details>
       </div>
     </section>
 
     <section class="closer">
+      <h2>Ready for a quick game?</h2>
       <a class="cta" href="https://apps.apple.com/app/id6780023559" target="_blank" rel="noopener">
-        <span class="apple">&#63743;</span> Get Mini Games Land — free
+        <svg aria-hidden="true"><use href="#apple"/></svg> Get Mini Games Land, free
       </a>
     </section>
   </main>

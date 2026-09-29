@@ -3,84 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Mini Games Land</title>
-  <meta name="description" content="Privacy policy for Mini Games Land (Mini Games: Offline Fun). Your scores stay on your device. Ads, anonymous analytics and crash reports keep the app free and working.">
-  <meta name="theme-color" content="#080b1f">
+  <title>Privacy Policy · Mini Games Land</title>
+  <meta name="description" content="Privacy policy for Mini Games Land (No WiFi Mini Games Box on the App Store). Your progress stays on your device. Ads, anonymous analytics, crash reports and an update check keep the app free and working.">
+  <link rel="canonical" href="https://rssutariya28-star.github.io/minigamesland/privacy/">
+  <meta name="theme-color" content="#0A0E27">
   <link rel="icon" href="../app_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* The app's own palette, as on the home page. */
     :root{
-      --violet:#6A1B9A; --magenta:#E040FB; --coral:#FF6B9D;
-      --ink:#080b1f; --card:#12162e; --line:#222746; --muted:#9aa0c0;
+      --bg:#0A0E27; --bg2:#1A0E3A; --surface:#151535;
+      --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+      --text:#FFFFFF; --muted:#A0A0C0; --faint:#8080B0;
+      --teal:#00C9A7; --magenta:#E040FB;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      color:#f3f4fb;background:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;
+      background:var(--bg) linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%) fixed;
+      min-height:100vh;
     }
-    a{color:var(--coral)}
-    .top{
-      background:linear-gradient(125deg,var(--violet),var(--magenta) 52%,var(--coral));
-      padding:40px 22px 34px;text-align:center;
+    a{color:var(--teal)}
+    .top{position:relative;text-align:center;padding:44px 20px 38px;overflow:hidden;isolation:isolate;
+      border-bottom:1px solid var(--line)}
+    .top::before{
+      content:"";position:absolute;inset:-40% -10% 0;z-index:-1;
+      background:radial-gradient(ellipse 55% 60% at 50% 20%,rgba(166,61,227,.8),rgba(122,34,196,.35) 50%,transparent 75%);
     }
-    .top a.back{display:inline-block;color:#fff;opacity:.92;margin-bottom:14px;text-decoration:none;font-weight:600}
-    .top h1{font-size:1.9rem;font-weight:800;color:#fff}
-    .top .sub{color:#fff;opacity:.9;font-size:.95rem;margin-top:6px}
-    .wrap{max-width:720px;margin:0 auto;padding:40px 22px 72px}
-    .intro{color:#cfd2e6;font-size:1.05rem}
-    h2{font-size:1.15rem;margin-top:2em;color:#fff}
+    .top a.back{display:inline-flex;align-items:center;gap:10px;color:#fff;margin-bottom:16px;text-decoration:none;font-weight:700}
+    .top a.back img{width:34px;height:34px;border-radius:9px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+    .top a.back:hover span{text-decoration:underline}
+    .top h1{font-size:clamp(1.8rem,5vw,2.3rem);font-weight:900;letter-spacing:-.01em}
+    .top .sub{color:#E6E0FF;font-size:.96rem;margin-top:6px}
+    .wrap{max-width:760px;margin:0 auto;padding:40px 20px 72px}
+    .intro{
+      color:#DAD6F2;font-size:1.04rem;background:var(--surface);border:1px solid var(--line2);
+      border-left:4px solid var(--teal);border-radius:14px;padding:18px 20px;
+    }
+    h2{font-size:1.18rem;margin-top:2.2em;color:#fff;font-weight:800}
     p,li{color:var(--muted);margin-top:.6em}
+    strong{color:#E8E6F6}
     ul{margin-top:.6em;padding-left:20px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:18px}
-    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.94rem}
-    th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
-    th{color:#f3f4fb;font-weight:700}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
+    .table{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px}
+    th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+    th{color:#fff;font-weight:800;background:rgba(255,255,255,.03)}
     tr:last-child td{border-bottom:none}
-    .updated{color:#6f7497;font-size:.9rem;margin-top:3em}
+    .updated{color:var(--faint);font-size:.9rem;margin-top:3em}
+    @media (max-width:600px){
+      .wrap{padding:32px 16px 60px}
+      /* Stack the table so no column hides off the edge of a phone. */
+      table{min-width:0}
+      table tr:first-child{display:none}
+      table,tbody,tr,td{display:block;width:100%}
+      tr{padding:6px 0;border-bottom:1px solid var(--line)}
+      tr:last-child{border-bottom:none}
+      td{border-bottom:none;padding:6px 16px}
+      td::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+        text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+    }
   </style>
 </head>
 <body>
   <header class="top">
-    <a class="back" href="../">&larr; Mini Games Land</a>
+    <a class="back" href="../"><img src="../app_icon.png" alt="" width="34" height="34"><span>&larr; Mini Games Land</span></a>
     <h1>Privacy Policy</h1>
-    <div class="sub">For the iOS app <strong>Mini Games: Offline Fun</strong> (Mini Games Land)</div>
+    <div class="sub">For the iOS app <strong>No WiFi Mini Games Box</strong> (Mini Games Land)</div>
   </header>
 
-  <div class="wrap">
+  <main class="wrap">
     <p class="intro">This page explains what Mini Games Land does with your information.
       The short version: there is no account, your game progress stays on your phone, and the
       only data that leaves your device is what Google needs in order to show ads, count
-      anonymous usage, and report a crash.</p>
+      anonymous usage, report a crash, and tell the app whether a newer version is out.</p>
 
     <h2>Your game data stays on your device</h2>
-    <p>Your scores, coins, daily missions, login streak, and unlocked items are saved only
-      on your own device. This data is not sent to us and is not shared with anyone. If you
-      uninstall the app, it is removed from your device.</p>
+    <p>Everything you build up while playing is saved only on your own device: your scores
+      and bests, coins and diamonds, ranks and titles, themes and power-ups, daily and weekly
+      challenges, your login streak, your settings, and the player name you choose, if you
+      choose one. This data is not sent to us and is not shared with anyone. Updating the app
+      keeps it. Uninstalling the app removes it from your device.</p>
 
     <h2>No account needed</h2>
-    <p>There are no accounts and no logins. You never give us a name, email address, phone
-      number, password, or any other detail that identifies you personally.</p>
+    <p>There are no accounts and no logins. You never give us an email address, phone number,
+      password, or any other detail that identifies you personally. A player name, if you set
+      one, never leaves your phone.</p>
+
+    <h2>No purchases</h2>
+    <p>The app has no in-app purchases and never asks for payment details. Coins and diamonds
+      are earned by playing, or by choosing to watch a video.</p>
 
     <h2>What is collected, and by whom</h2>
-    <p>The app itself does not run a server. Three Google services are built into it, and
-      each collects a limited amount of information:</p>
-    <table>
-      <tr><th>Service</th><th>What it is for</th><th>What it may receive</th></tr>
-      <tr>
-        <td><strong>Google AdMob</strong></td>
-        <td>Shows the ads that pay for the app, including optional rewarded ads you choose to watch for coins.</td>
-        <td>An advertising identifier, general device and app details (model, OS version, language, region, app version), and a rough, non-precise location derived from them.</td>
-      </tr>
-      <tr>
-        <td><strong>Firebase Analytics</strong></td>
-        <td>Counts anonymous, aggregated usage — which games are opened, how long a session lasts, whether a mission was completed.</td>
-        <td>An app instance identifier and event counts. It is not used to identify you personally.</td>
-      </tr>
-      <tr>
-        <td><strong>Firebase Crashlytics</strong></td>
-        <td>Reports crashes so they can be found and fixed.</td>
-        <td>The crash itself plus the device state around it: device model, OS version, app version, and how long the app had been running.</td>
-      </tr>
-    </table>
+    <p>The app itself does not run a server. Four Google services are built into it, and each
+      collects a limited amount of information:</p>
+    <div class="table">
+      <table>
+        <tr><th>Service</th><th>What it is for</th><th>What it may receive</th></tr>
+        <tr>
+          <td data-label="Service"><strong>Google AdMob</strong></td>
+          <td data-label="What it is for">Shows the ads that pay for the app: banners, a full-screen ad now and then when you play again, and optional rewarded videos you choose to watch for diamonds, a power-up, a theme trial, or to enter the Challenge of the Day.</td>
+          <td data-label="What it may receive">An advertising identifier (only if you allow tracking), general device and app details (model, OS version, language, region, app version), and a rough, non-precise location derived from them.</td>
+        </tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase Analytics</strong></td>
+          <td data-label="What it is for">Counts anonymous, aggregated usage: which games are played and for how long, which features are used (challenges, themes, power-ups, the lucky wheel), how ads performed, and general settings such as whether sound is on or tracking was allowed.</td>
+          <td data-label="What it may receive">An app instance identifier and event counts. It is not used to identify you personally.</td>
+        </tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase Crashlytics</strong></td>
+          <td data-label="What it is for">Reports crashes so they can be found and fixed.</td>
+          <td data-label="What it may receive">The crash itself plus the device state around it: device model, OS version, app version, and how long the app had been running.</td>
+        </tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase Remote Config</strong></td>
+          <td data-label="What it is for">Tells the app whether a newer version is available or required, and can adjust a few game settings (such as rank targets) without an update.</td>
+          <td data-label="What it may receive">A Firebase installation identifier and basic app and device details, such as app version, platform and language.</td>
+        </tr>
+      </table>
+    </div>
     <p>Google processes this in line with the
       <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>,
       <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data from sites and apps that use its services</a>, and
@@ -89,20 +133,20 @@
 
     <h2>Your choices</h2>
     <ul>
-      <li><strong>Tracking.</strong> On Apple devices the app asks, through Apple's own prompt, whether it may track you across other companies' apps and websites. You can say no, and you can change your answer later under Settings &rarr; Privacy &amp; Security &rarr; Tracking.</li>
-      <li><strong>Ad consent in Europe.</strong> In the EEA, the UK and Switzerland, a Google consent form appears before any ad is shown, and your choices there are respected.</li>
+      <li><strong>Tracking.</strong> On Apple devices the app asks, through Apple's own prompt, whether it may track you across other companies' apps and websites. You can say no, and you still get every game either way. You can change your answer later under Settings &rarr; Privacy &amp; Security &rarr; Tracking.</li>
+      <li><strong>Ad consent in Europe.</strong> In the EEA, the UK and Switzerland, a Google consent form appears before any ad is shown, and your choices there are respected. You can change them at any time from <strong>Privacy choices</strong> in the app's Settings.</li>
+      <li><strong>Rewarded videos are optional.</strong> Every game can be played without ever watching one.</li>
       <li><strong>Advertising identifier.</strong> You can reset it or limit ad personalisation at any time, under Settings &rarr; Privacy &amp; Security on your device.</li>
       <li><strong>Delete everything.</strong> Uninstalling the app removes all of the progress stored on your device.</li>
     </ul>
 
     <h2>Ratings</h2>
     <p>After a good run the app may ask whether you would like to rate it. That prompt is
-      shown by Apple, not by us — we are never told what you tapped or what you rated.</p>
+      shown by Apple, not by us, and we are never told what you tapped or what you rated.</p>
 
     <h2>Children</h2>
     <p>The app is meant for a general audience and is not directed at children under 13. We do
-      not knowingly collect personal information from children. Any ads shown are configured to
-      follow the rules that apply to family-friendly apps.</p>
+      not knowingly collect personal information from children.</p>
 
     <h2>Changes to this policy</h2>
     <p>If a future version of the app changes how data is handled, this page will be updated
@@ -116,7 +160,7 @@
         and it will be answered there.</p>
     </div>
 
-    <p class="updated">Last updated: September 2026. Applies to app version 1.2.1 and later.</p>
-  </div>
+    <p class="updated">Last updated: 29 September 2026. Applies to app version 1.3.2 and later.</p>
+  </main>
 </body>
 </html>
