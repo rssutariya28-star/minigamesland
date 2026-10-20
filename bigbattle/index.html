@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Battle: live 1v1 mini-game battles</title>
+  <meta name="description" content="Big Battle is a free iPhone game of live 1v1 battles: three rounds, three different mini-games, and whoever wins two takes the battle. No account needed.">
+  <link rel="canonical" href="https://rssutariya28-star.github.io/minigamesland/bigbattle/">
+  <meta property="og:title" content="Big Battle">
+  <meta property="og:description" content="Live 1v1 mini-game battles. Three rounds, three games, win two.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rssutariya28-star.github.io/minigamesland/bigbattle/">
+  <meta property="og:image" content="https://rssutariya28-star.github.io/minigamesland/bigbattle/img/icon.png">
+  <meta name="theme-color" content="#0A0915">
+  <link rel="icon" href="img/icon.png">
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* The game's own palette: a night-time trophy room. Ice is you,
+       ember is your rival, champagne gold is the main action. */
+    :root{
+      --bg:#0A0915; --bg-top:#1A1542; --glass:#1D1A38; --glass-low:#110F24;
+      --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+      --text:#F5F3FF; --muted:#A39EC4; --faint:#6C6790;
+      --ice:#62E8FF; --ice-deep:#3F7CFF; --ember:#FF5C8A; --ember-deep:#FF8B4D;
+      --gold-high:#FFE7AA; --gold:#F2C879; --gold-deep:#C38D3E; --on-gold:#2B1B05;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;
+      background:var(--bg) linear-gradient(180deg,var(--bg-top) 0%,var(--bg) 46%) no-repeat;
+      min-height:100vh;
+    }
+    a{color:var(--ice)}
+    h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;letter-spacing:-.01em;line-height:1.15}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+    .hero{position:relative;text-align:center;padding:64px 0 40px;isolation:isolate;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-30% -20% 20%;z-index:-1;
+      background:
+        radial-gradient(ellipse 40% 50% at 32% 30%,rgba(98,232,255,.22),transparent 70%),
+        radial-gradient(ellipse 40% 50% at 68% 30%,rgba(255,92,138,.22),transparent 70%);}
+    .hero img.icon{width:112px;height:112px;border-radius:26px;box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px var(--line2)}
+    .hero h1{margin-top:22px;font-size:clamp(2.6rem,9vw,4.4rem);font-weight:900;
+      background:linear-gradient(180deg,var(--gold-high),var(--gold) 55%,var(--gold-deep));
+      -webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero .tag{margin-top:10px;font-size:clamp(1.05rem,3.2vw,1.3rem);color:var(--muted)}
+    .cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:15px 28px;border-radius:18px;
+      font-weight:800;text-decoration:none;color:var(--on-gold);
+      background:linear-gradient(180deg,var(--gold-high),var(--gold) 50%,var(--gold-deep));
+      box-shadow:0 10px 30px rgba(242,200,121,.28)}
+    .cta small{font-weight:600;opacity:.75}
+    .note{margin-top:12px;color:var(--faint);font-size:.92rem}
+
+    .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0 8px}
+    .shots img{width:100%;height:auto;border-radius:22px;border:1px solid var(--line2);
+      box-shadow:0 20px 50px rgba(0,0,0,.5);background:var(--glass-low)}
+
+    section{padding:44px 0 6px}
+    section h2{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800}
+    section > .wrap > p.lead{color:var(--muted);margin-top:8px;max-width:640px}
+
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    .card{background:linear-gradient(180deg,var(--glass),var(--glass-low));border:1px solid var(--line);
+      border-radius:20px;padding:20px}
+    .card .n{font-family:Unbounded,sans-serif;font-weight:800;font-size:1.5rem;color:var(--gold)}
+    .card h3{font-size:1.02rem;margin-top:8px}
+    .card p{color:var(--muted);margin-top:6px;font-size:.96rem}
+
+    .games{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+    .game{display:flex;gap:14px;align-items:flex-start}
+    .badge{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem}
+    .game h3{font-size:.98rem}
+    .game p{color:var(--muted);font-size:.93rem;margin-top:4px}
+
+    .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+    .you{border-left:3px solid var(--ice)} .rival{border-left:3px solid var(--ember)}
+
+    footer{margin-top:56px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--faint);font-size:.92rem}
+    footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+    footer a{color:var(--muted)}
+
+    @media (max-width:720px){
+      .hero{padding:44px 0 28px}
+      .shots{grid-template-columns:1fr 1fr}
+      .shots img:nth-child(3){display:none}
+      .steps,.duo{grid-template-columns:1fr}
+      .wrap{padding:0 16px}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <img class="icon" src="img/icon.png" alt="Big Battle app icon" width="112" height="112">
+      <h1>Big Battle</h1>
+      <p class="tag">Live 1v1 mini-game battles. Three rounds, three games, win two.</p>
+      <a class="cta" href="#support" id="store-link">Coming soon to the App Store <small>iPhone · free</small></a>
+      <p class="note">No account, no sign-up. Pick an animal, enter a nickname, and play.</p>
+      <div class="shots">
+        <img src="img/versus.jpg" alt="The versus screen as Nova and Kai face off" width="506" height="1100" loading="lazy">
+        <img src="img/mini-golf.jpg" alt="A mini golf round with both players' live scores" width="506" height="1100" loading="lazy">
+        <img src="img/victory.jpg" alt="The victory screen with the round-by-round results" width="506" height="1100" loading="lazy">
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>How a battle works</h2>
+      <p class="lead">Every battle is best of three, and every round is a different game.</p>
+      <div class="steps">
+        <div class="card"><div class="n">1</div><h3>Find a rival</h3>
+          <p>Tap Find a battle and you're matched with a rival near your rating, usually in seconds.</p></div>
+        <div class="card"><div class="n">2</div><h3>Three games, drawn at random</h3>
+          <p>Each round explains its rules, waits until both players are ready, then counts down 3-2-1.</p></div>
+        <div class="card"><div class="n">3</div><h3>First to two wins</h3>
+          <p>Scores go up live on both sides. Win two rounds and the battle is yours, then ask for a rematch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The games</h2>
+      <div class="games">
+        <div class="game"><div class="badge" style="background:linear-gradient(135deg,#E9ECF8,#7D84AE)">🏁</div>
+          <div><h3>Lap race</h3><p>One lap, top-down. Hold left or right to steer; first across the line wins.</p></div></div>
+        <div class="game"><div class="badge" style="background:linear-gradient(135deg,#E8B27A,#9A5B2E)">🎯</div>
+          <div><h3>Knife throw</h3><p>30 seconds. Tap to throw into a spinning wheel; most knives wins.</p></div></div>
+        <div class="game"><div class="badge" style="background:linear-gradient(135deg,#C08BFF,#7A45F0)">🏹</div>
+          <div><h3>Archery</h3><p>45 seconds. Drag to aim at a sliding target in a steady wind.</p></div></div>
+        <div class="game"><div class="badge" style="background:linear-gradient(135deg,#8FF0A4,#1E8A5A)">⚽</div>
+          <div><h3>Penalty shootout</h3><p>45 seconds. Swipe to shoot past a keeper who gets quicker with every goal.</p></div></div>
+        <div class="game"><div class="badge" style="background:linear-gradient(135deg,#C6F36B,#4FAE3A)">⛳</div>
+          <div><h3>Mini golf</h3><p>Three holes. Putt around walls and sliding blocks in as few strokes as you can.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Fair by design</h2>
+      <div class="duo">
+        <div class="card you"><h3>Same targets for both</h3>
+          <p>Both players get the same games in the same order, the same wheels, winds, keepers and holes. Only skill decides.</p></div>
+        <div class="card rival"><h3>Ties settled fairly</h3>
+          <p>Level on points? Whoever got there first wins the round. Both phones always agree on the result.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="wrap">
+      <h2>Support</h2>
+      <p class="lead">Found a bug, or have a question or an idea? Open an issue on the
+        <a href="https://github.com/rssutariya28-star/minigamesland/issues">issue tracker</a>
+        and mention Big Battle. Every issue gets an answer there.</p>
+      <p class="lead">Read how Big Battle handles your information in the
+        <a href="privacy/">privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Big Battle</span>
+      <span><a href="privacy/">Privacy policy</a> · <a href="https://github.com/rssutariya28-star/minigamesland/issues">Support</a> · <a href="../">Mini Games Land</a></span>
+    </div>
+  </footer>
+</body>
+</html>
