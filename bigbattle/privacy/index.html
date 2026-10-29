@@ -66,11 +66,12 @@
   </header>
 
   <main class="wrap">
-    <p class="intro">The short version: there is no account and no sign-up, no ads, no
-      analytics and no tracking. To match you with a rival and run a live battle, the game
-      sends your nickname, avatar and region to its game server, and your scores to your
-      rival while you play. Nothing identifies you personally, and matchmaking records are
-      deleted within a day.</p>
+    <p class="intro">The short version: there is no account and no sign-up, no ads and no
+      tracking. To match you with a rival and run a live battle, the game sends your
+      nickname, avatar and region to its game server, and your scores to your rival while
+      you play. The app also uses Google's Firebase for anonymous usage statistics, to tell
+      you when an update is out, and for the occasional message on the home screen. Nothing
+      identifies you personally, and matchmaking records are deleted within a day.</p>
 
     <h2>No account needed</h2>
     <p>You never give us an email address, phone number, password or real name. When you
@@ -79,7 +80,7 @@
       to your Apple ID or to any other account.</p>
 
     <h2>What stays on your device</h2>
-    <p>Your nickname, your chosen animal avatar and the guest sign-in token are saved on
+    <p>Your nickname, your chosen hero and the guest sign-in token are saved on
       your device so they are there next time. Uninstalling the app removes them.</p>
 
     <h2>What the game server receives, and why</h2>
@@ -113,12 +114,40 @@
     <p>Your rival sees your nickname, avatar, region flag and rating, and your live scores
       during the battle. Please don't use your real name as your nickname.</p>
 
+    <h2>What Firebase receives, and why</h2>
+    <p>Three Google Firebase services are built into the app. None of them receives your
+      nickname, your scores or anything you type.</p>
+    <div class="table">
+      <table>
+        <tr><th>Service</th><th>What it is for</th><th>What it may receive</th></tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase Analytics</strong></td>
+          <td data-label="What it is for">Counts anonymous, aggregated usage, such as how many people open the app each day and how long they play, so we can see what to improve.</td>
+          <td data-label="What it may receive">An app instance identifier, basic device and app details (model, OS version, language, app version) and a rough country or region. It is not linked to you and never uses the advertising identifier.</td>
+        </tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase Remote Config</strong></td>
+          <td data-label="What it is for">Tells the app whether a newer version is available or required.</td>
+          <td data-label="What it may receive">A Firebase installation identifier and basic app and device details, such as app version, platform and language.</td>
+        </tr>
+        <tr>
+          <td data-label="Service"><strong>Firebase In-App Messaging</strong></td>
+          <td data-label="What it is for">Shows an occasional message on the home screen, such as news about an update. It never appears during a battle.</td>
+          <td data-label="What it may receive">A Firebase installation identifier, and whether a message was shown or tapped.</td>
+        </tr>
+      </table>
+    </div>
+    <p>Google processes this in line with the
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and
+      <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy documentation</a>.
+      We only ever see it in aggregate.</p>
+
     <h2>What Big Battle does not do</h2>
     <ul>
-      <li>No ads, no analytics, no crash reporting and no tracking across other apps or websites.</li>
+      <li>No ads, no crash reporting and no tracking across other apps or websites. The usage statistics above are anonymous and never used for advertising.</li>
       <li>No in-app purchases. The app never asks for payment details.</li>
       <li>No location services, contacts, photos, camera or microphone.</li>
-      <li>We do not sell or share your information with anyone.</li>
+      <li>We do not sell your information, and share it only with the services named on this page.</li>
     </ul>
 
     <h2>Your choices</h2>
@@ -143,7 +172,7 @@
       <a href="https://github.com/rssutariya28-star/minigamesland/issues">issue tracker</a>
       and mention Big Battle. It will be answered there.</p>
 
-    <p class="updated">Last updated: 20 October 2026. Applies to Big Battle 1.0 and later.</p>
+    <p class="updated">Last updated: 29 October 2026. Applies to Big Battle 1.1 and later.</p>
   </main>
 </body>
 </html>
