@@ -66,14 +66,16 @@
   </header>
 
   <main class="wrap">
-    <p class="intro">The short version: there is no account and no sign-up, no ads and no
-      tracking. To match you with a rival and run a live battle, the game sends your
-      nickname, avatar and region to its game server, and your scores to your rival while
-      you play. When you win, your nickname, champion, region and number of wins appear on the
-      daily and weekly leaderboard. The app also uses Google's Firebase for anonymous usage
-      statistics, to tell you when an update is out, and for the occasional message on the
-      home screen. Nothing identifies you personally, and matchmaking records are deleted
-      within a day.</p>
+    <p class="intro">The short version: there is no account and no sign-up. To match you
+      with a rival and run a live battle, the game sends your nickname, avatar and region to
+      its game server, and your scores to your rival while you play. When you win, your
+      nickname, champion, region and number of wins appear on the daily and weekly
+      leaderboard. The app also uses Google's Firebase for anonymous usage statistics, to tell
+      you when an update is out, and for the occasional message on the home screen. From
+      version 1.3 the game is paid for by ads from Google AdMob, shown between battles and
+      along the bottom of some screens, never during a battle; they are only chosen using your
+      activity in other apps if you allow it when your iPhone asks. Nothing identifies you by
+      name, and matchmaking records are deleted within a day.</p>
 
     <h2>No account needed</h2>
     <p>You never give us an email address, phone number, password or real name. When you
@@ -108,9 +110,9 @@
           <td data-label="How long it is kept">Until you ask us to delete it. Only today's and this week's wins are shown.</td>
         </tr>
         <tr>
-          <td data-label="What">When any battle ends: whether you won, lost or tied, and whether your rival was a live player</td>
-          <td data-label="Why">To count how many battles are played</td>
-          <td data-label="How long it is kept">Only hourly totals are kept, with nothing about who played. Your guest ID and the time are kept for 10 minutes, so each battle is counted once.</td>
+          <td data-label="What">When any battle ends: your guest ID, the time, whether you won, lost or tied, and whether your rival was a live player</td>
+          <td data-label="Why">To count how many people play each day and how many battles are played</td>
+          <td data-label="How long it is kept">90 days. After that only daily totals are kept, with nothing about who played.</td>
         </tr>
         <tr>
           <td data-label="What">A name you report on the leaderboard: your guest ID, theirs, and the name</td>
@@ -141,8 +143,8 @@
         <tr><th>Service</th><th>What it is for</th><th>What it may receive</th></tr>
         <tr>
           <td data-label="Service"><strong>Firebase Analytics</strong></td>
-          <td data-label="What it is for">Counts anonymous, aggregated usage, such as how many people open the app each day and how long they play, so we can see what to improve.</td>
-          <td data-label="What it may receive">An app instance identifier, basic device and app details (model, OS version, language, app version) and a rough country or region. It is not linked to you and never uses the advertising identifier.</td>
+          <td data-label="What it is for">Counts anonymous, aggregated usage, such as how many people open the app each day and how long they play, so we can see what to improve. It also tells Google Ads when the app is opened for the first time, so we can see which of our own ads for 1v1 Battle bring new players.</td>
+          <td data-label="What it may receive">An app instance identifier, basic device and app details (model, OS version, language, app version) and a rough country or region. It is not linked to you. If you allow tracking (see below), it may also receive your device's advertising identifier.</td>
         </tr>
         <tr>
           <td data-label="Service"><strong>Firebase Remote Config</strong></td>
@@ -161,9 +163,35 @@
       <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy documentation</a>.
       We only ever see it in aggregate.</p>
 
+    <h2>Ads, and what AdMob receives</h2>
+    <p>From version 1.3, 1v1 Battle shows ads from Google AdMob: a banner along the bottom of
+      the home and result screens, and a full-screen ad at the end of a battle, before its
+      result. Ads never appear during a battle or while you are looking for a rival, and they
+      are limited to ones suitable for a general audience.</p>
+    <div class="table">
+      <table>
+        <tr><th>What AdMob may receive</th><th>Why</th></tr>
+        <tr>
+          <td data-label="What AdMob may receive">An identifier for this app on your device, your IP address and a rough location worked out from it, basic device and app details (model, OS version, language, app version), and which ads you saw and tapped</td>
+          <td data-label="Why">To choose, show and count ads, to measure how they perform, and to prevent fraud and abuse</td>
+        </tr>
+        <tr>
+          <td data-label="What AdMob may receive">Your device's advertising identifier, only if you allow tracking when your iPhone asks</td>
+          <td data-label="Why">To choose ads using your activity in other companies' apps and websites. Without it, ads are chosen without that history.</td>
+        </tr>
+      </table>
+    </div>
+    <p>After your first battle, the game explains the ads and offers to show your iPhone's
+      tracking question; you can say no, or not now, and the game plays exactly the same. In the
+      UK, the European Economic Area and Switzerland, Google's consent message asks for your
+      choice before any ads load. Google handles this information as described in
+      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps that use its services</a>
+      and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
+      We never receive it ourselves, only totals such as how many ads were shown.</p>
+
     <h2>What 1v1 Battle does not do</h2>
     <ul>
-      <li>No ads, no crash reporting and no tracking across other apps or websites. The usage statistics above are anonymous and never used for advertising.</li>
+      <li>No crash reporting, and no tracking across other companies' apps or websites unless you allow it when your iPhone asks.</li>
       <li>No in-app purchases. The app never asks for payment details.</li>
       <li>No location services, contacts, photos, camera or microphone.</li>
       <li>We do not sell your information, and share it only with the services named on this page.</li>
@@ -174,6 +202,10 @@
       <li><strong>Change your nickname or champion</strong> at any time in your profile.</li>
       <li><strong>Report a name</strong> on the leaderboard with the &hellip; button next to it.
         Their name is hidden on your leaderboard straight away; their place and wins stay as they are.</li>
+      <li><strong>Turn tracking for ads on or off</strong> at any time in your iPhone's Settings, under
+        Privacy &amp; Security &rarr; Tracking.</li>
+      <li><strong>Change your ad consent</strong> in the UK, the EEA and Switzerland with
+        Privacy choices in your profile.</li>
       <li><strong>Delete everything on your device</strong> by uninstalling the app.</li>
       <li><strong>Ask for your guest account and leaderboard entry to be deleted</strong> by opening an issue on the
         <a href="https://github.com/rssutariya28-star/minigamesland/issues">issue tracker</a>.
@@ -193,7 +225,7 @@
       <a href="https://github.com/rssutariya28-star/minigamesland/issues">issue tracker</a>
       and mention 1v1 Battle. It will be answered there.</p>
 
-    <p class="updated">Last updated: 5 November 2026. Applies to 1v1 Battle 1.2 and later, and to Big Battle 1.1.</p>
+    <p class="updated">Last updated: 7 November 2026. Applies to 1v1 Battle 1.2 and later (ads from 1.3), and to Big Battle 1.1.</p>
   </main>
 </body>
 </html>
